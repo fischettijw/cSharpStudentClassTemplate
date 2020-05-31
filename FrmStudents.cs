@@ -39,7 +39,7 @@ namespace cSharpStudentClassTemplate
                 Student student;
                 string[] parsedStudentInfo = sInfo.Split(',');
                 student = new Student(parsedStudentInfo[0], parsedStudentInfo[1], Convert.ToInt32(parsedStudentInfo[2]));
-                pS.Print($"{student.ToString()}");
+                //pS.Print($"{student.ToString()}");
 
                 string[] parsedGradeInfo = gradeInfo[rnd.Next(0, 99)].ToString().Split(',');
                 student.MathGrade = Convert.ToInt32(parsedGradeInfo[0]);
@@ -58,6 +58,10 @@ namespace cSharpStudentClassTemplate
                 student.EngGrade = Convert.ToInt32(parsedGradeInfo[1]);
                 student.EngGrade = Convert.ToInt32(parsedGradeInfo[2]);
                 pG.Print($"Eng:  {student.EngGrades[0]} ,{student.EngGrades[1]} ,{student.EngGrades[2]}");
+
+                //string[] parsedStudentInfo = sInfo.Split(',');
+                //student = new Student(parsedStudentInfo[0], parsedStudentInfo[1], Convert.ToInt32(parsedStudentInfo[2]));
+                pS.Print($"{student.ToString()}");
             }
         }
 
