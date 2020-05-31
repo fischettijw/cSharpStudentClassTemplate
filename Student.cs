@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace cSharpStudentClassTemplate
 {
@@ -12,15 +13,26 @@ namespace cSharpStudentClassTemplate
         public static int NumberOfStudents = 0;
         public static Dictionary<string, Student> Students = new Dictionary<string, Student>();  // key = Student ID
 
+        private List<int> mathGrades = new List<int>();
+        private List<int> sciGrades = new List<int>();
+        private List<int> engGrades = new List<int>();
+
         public String FirstName { get; }
         public String LastName { get; }
         public int GradeLevel { get; }
-        public List<Double> MathGrades { get; set; }
-        public Double MathAvg { get; }
-        public List<Double> SciGrades { get; set; }
-        public Double SciAvg { get; }
-        public List<Double> EngGrades { get; set; }
-        public Double EngAvg { get; }
+
+        public int MathGrade { set { mathGrades.Add(value); } }
+        public List<int> MathGrades { get { return mathGrades; } }
+        public int MathAvg { get { return MathAverage(); } }
+
+        public int SciGrade { set { sciGrades.Add(value); } }
+        public List<int> SciGrades { get { return sciGrades; } }
+        public int SciAvg { get { return SciAverage(); } }
+
+        public int EngGrade { set { engGrades.Add(value); } }
+        public List<int> EngGrades { get { return engGrades; } }
+        public int EngAvg { get { return EngAverage(); } }
+
         public string StudentID { get; }
         public DateTime DateTimeCreated { get; }
 
@@ -46,14 +58,33 @@ namespace cSharpStudentClassTemplate
             return FirstName + " " + LastName;
         }
 
-        public double MathAverage()
+        public int MathAverage()
         {
-            double sum = 0;
-            foreach (Single grade in MathGrades)
+            int sum = 0;
+            foreach (int grade in MathGrades)
             {
                 sum += grade;
             }
             return sum / MathGrades.Count;
+        }
+
+        public int SciAverage()
+        {
+            int sum = 0;
+            foreach (int grade in SciGrades)
+            {
+                sum += grade;
+            }
+            return sum / SciGrades.Count;
+        }
+        public int EngAverage()
+        {
+            int sum = 0;
+            foreach (int grade in EngGrades)
+            {
+                sum += grade;
+            }
+            return sum / EngGrades.Count;
         }
 
 
@@ -107,6 +138,11 @@ namespace cSharpStudentClassTemplate
                 }
             }
             return awardCandidates;
+        }
+
+        public override string ToString()
+        {
+            return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)}";
         }
 
     }
