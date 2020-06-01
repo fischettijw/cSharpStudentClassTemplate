@@ -14,7 +14,7 @@ namespace cSharpStudentClassTemplate
 {
     public partial class FrmStudents : Form
     {
-
+        Student student;
 
         List<string> studentInfo = new List<string>();
         List<string> gradeInfo = new List<string>();
@@ -36,10 +36,8 @@ namespace cSharpStudentClassTemplate
 
             foreach (string sInfo in studentInfo)
             {
-                Student student;
                 string[] parsedStudentInfo = sInfo.Split(',');
                 student = new Student(parsedStudentInfo[0], parsedStudentInfo[1], Convert.ToInt32(parsedStudentInfo[2]));
-                //pS.Print($"{student.ToString()}");
 
                 string[] parsedGradeInfo = gradeInfo[rnd.Next(0, 99)].ToString().Split(',');
                 student.MathGrade = Convert.ToInt32(parsedGradeInfo[0]);
@@ -59,15 +57,14 @@ namespace cSharpStudentClassTemplate
                 student.EngGrade = Convert.ToInt32(parsedGradeInfo[2]);
                 pG.Print($"Eng:  {student.EngGrades[0]} ,{student.EngGrades[1]} ,{student.EngGrades[2]}");
 
-                //string[] parsedStudentInfo = sInfo.Split(',');
-                //student = new Student(parsedStudentInfo[0], parsedStudentInfo[1], Convert.ToInt32(parsedStudentInfo[2]));
                 pS.Print($"{student.ToString()}");
             }
         }
 
         private void BtnClick_Click(object sender, EventArgs e)
         {
-
+            Txt01.Text = Txt01.Text.RJ(5, '0');
+            Txt02.Text = Student.Students[Txt01.Text].ToString();
         }
     }
 
