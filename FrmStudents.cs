@@ -68,9 +68,9 @@ namespace cSharpStudentClassTemplate
             Txt01.Text = Txt01.Text.RJ(5, '0');
             Txt02.Text = Student.Students[Txt01.Text].ToString();
 
-            List<Student> mathAwards = Student.MathAwardCandidates();
-            //List<Student> sciAwards = Student.SciAwardCandidates();
-            //List<Student> engAwards = Student.EngAwardCandidates();
+            List<Student> mathAwards = Student.AwardCandidates(Student.Subject.Math, 90);
+            List<Student> sciAwards = Student.AwardCandidates(Student.Subject.Sci, 90);
+            List<Student> engAwards = Student.AwardCandidates(Student.Subject.Eng, 90);
 
         }
     }

@@ -66,12 +66,25 @@ namespace cSharpStudentClassTemplate
             return FirstName + " " + LastName;
         }
 
-        public static List<Student> MathAwardCandidates()
+        public static List<Student> AwardCandidates(Subject subject, Single gradeCutoff)
         {
             List<Student> awardCandidates = new List<Student>();
             foreach (KeyValuePair<string, Student> s in Students)
             {
-                if (s.Value.MathAvg > 90.0)
+                if (subject == Subject.Math) { if (s.Value.MathAvg > gradeCutoff) awardCandidates.Add(s.Value); }
+                if (subject == Subject.Sci) { if (s.Value.SciAvg > gradeCutoff) awardCandidates.Add(s.Value); }
+                if (subject == Subject.Eng) { if (s.Value.EngAvg > gradeCutoff) awardCandidates.Add(s.Value); }
+            }
+            return awardCandidates;
+        }
+
+
+        public static List<Student> MathAwardCandidates(Single gradeCutoff)
+        {
+            List<Student> awardCandidates = new List<Student>();
+            foreach (KeyValuePair<string, Student> s in Students)
+            {
+                if (s.Value.MathAvg > gradeCutoff)
                 {
                     awardCandidates.Add(s.Value);
                 }
