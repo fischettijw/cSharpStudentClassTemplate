@@ -23,15 +23,15 @@ namespace cSharpStudentClassTemplate
 
         public int MathGrade { set { mathGrades.Add(value); } }
         public List<int> MathGrades { get { return mathGrades; } }
-        public int MathAvg { get { return MathAverage(); } }
+        public Single MathAvg { get { return (Single)MathGrades.Average(); } }
 
         public int SciGrade { set { sciGrades.Add(value); } }
         public List<int> SciGrades { get { return sciGrades; } }
-        public int SciAvg { get { return SciAverage(); } }
+        public Single SciAvg { get { return (Single)SciGrades.Average(); } }
 
         public int EngGrade { set { engGrades.Add(value); } }
         public List<int> EngGrades { get { return engGrades; } }
-        public int EngAvg { get { return EngAverage(); } }
+        public Single EngAvg { get { return (Single)EngGrades.Average(); } }
 
         public string StudentID { get; }
         public DateTime DateTimeCreated { get; }
@@ -57,36 +57,6 @@ namespace cSharpStudentClassTemplate
         {
             return FirstName + " " + LastName;
         }
-
-        public int MathAverage()
-        {
-            int sum = 0;
-            foreach (int grade in MathGrades)
-            {
-                sum += grade;
-            }
-            return sum / MathGrades.Count;
-        }
-
-        public int SciAverage()
-        {
-            int sum = 0;
-            foreach (int grade in SciGrades)
-            {
-                sum += grade;
-            }
-            return sum / SciGrades.Count;
-        }
-        public int EngAverage()
-        {
-            int sum = 0;
-            foreach (int grade in EngGrades)
-            {
-                sum += grade;
-            }
-            return sum / EngGrades.Count;
-        }
-
 
         public static List<Student> MathAwardCandidates()
         {
@@ -142,7 +112,7 @@ namespace cSharpStudentClassTemplate
 
         public override string ToString()
         {
-            return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)}   M:{MathAvg.ToString().RJ(3)} S:{SciAvg.ToString().RJ(3)} E:{EngAvg.ToString().RJ(3)}";
+            return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)}   M:{MathAvg.ToString("F").RJ(3)} S:{SciAvg.ToString("F").RJ(3)} E:{EngAvg.ToString("F").RJ(3)}";
         }
 
     }
