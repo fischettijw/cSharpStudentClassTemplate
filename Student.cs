@@ -142,7 +142,7 @@ namespace cSharpStudentClassTemplate
 
         public override string ToString()
         {
-            return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)} M:{MathAvg.ToString().RJ(4)} S:{SciAvg.ToString().RJ(4)} E:{EngAvg.ToString().RJ(4)}";
+            return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)}   M:{MathAvg.ToString().RJ(3)} S:{SciAvg.ToString().RJ(3)} E:{EngAvg.ToString().RJ(3)}";
         }
 
     }
