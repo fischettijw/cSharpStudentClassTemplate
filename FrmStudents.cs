@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Security.Cryptography.X509Certificates;
 
 namespace cSharpStudentClassTemplate
 {
@@ -19,6 +19,7 @@ namespace cSharpStudentClassTemplate
         List<string> studentInfo = new List<string>();
         List<string> gradeInfo = new List<string>();
 
+
         public FrmStudents()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace cSharpStudentClassTemplate
 
         private void FrmTesting_Load(object sender, EventArgs e)
         {
+            Txt01.Text = "00001";
             Random rnd = new Random();
 
             studentInfo = File.ReadAllLines(@".\RandomlyGeneratedStudents.csv").ToList();
@@ -65,6 +67,11 @@ namespace cSharpStudentClassTemplate
         {
             Txt01.Text = Txt01.Text.RJ(5, '0');
             Txt02.Text = Student.Students[Txt01.Text].ToString();
+
+            List<Student> mathAwards = Student.MathAwardCandidates();
+            //List<Student> sciAwards = Student.SciAwardCandidates();
+            //List<Student> engAwards = Student.EngAwardCandidates();
+
         }
     }
 

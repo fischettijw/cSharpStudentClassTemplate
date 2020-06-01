@@ -9,6 +9,13 @@ namespace cSharpStudentClassTemplate
 {
     class Student
     {
+        public enum Subject
+        {
+            Math,
+            Sci,
+            Eng
+        }
+
         private static int studentID = 0;
         public static int NumberOfStudents = 0;
         public static Dictionary<string, Student> Students = new Dictionary<string, Student>();  // key = Student ID
@@ -35,6 +42,7 @@ namespace cSharpStudentClassTemplate
 
         public string StudentID { get; }
         public DateTime DateTimeCreated { get; }
+        public static object Invoke { get; private set; }
 
         public Student(string firstName, string lastName, int gradeLevel)
         {
