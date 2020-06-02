@@ -116,6 +116,5 @@ namespace cSharpStudentClassTemplate
 }
 
 
-
 //add to Dictionary then convert to Array
 //File.WriteAllLines(@".\RandomlyGeneratedStudentsTest.csv", studentInfo.ToArray());   ??????
