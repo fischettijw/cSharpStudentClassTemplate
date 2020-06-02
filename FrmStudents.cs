@@ -70,9 +70,9 @@ namespace cSharpStudentClassTemplate
             ListBoxPrint pS = new ListBoxPrint(LbxStudents);
             ListBoxPrint pG = new ListBoxPrint(LbxGrades);
 
-            Single mathAward = 90;
-            Single sciAward = 90;
-            Single engAward = 90;
+            Single mathAward = 93;
+            Single sciAward = 93;
+            Single engAward = 93;
             Single allAward = 90;
 
             Txt01.Text = Txt01.Text.RJ(5, '0');
@@ -117,14 +117,7 @@ namespace cSharpStudentClassTemplate
 
 }
 
-//Student.Students["00058"].ToString()
-//"00058   Richard Prescott    "
 
-
-//var random = new Random();
-//var list = new List<string> { "one", "two", "three", "four" };
-//int index = random.Next(list.Count);
-//Console.WriteLine(list[index]);
 
 //add to Dictionary then convert to Array
 //File.WriteAllLines(@".\RandomlyGeneratedStudentsTest.csv", studentInfo.ToArray());   ??????
