@@ -38,7 +38,7 @@ namespace cSharpStudentClassTemplate
 
             foreach (string sInfo in studentInfo)
             {
-                string[] parsedStudentInfo = sInfo.Split(',');
+                string[] parsedStudentInfo = sInfo.Split(',');  // Must be infront to establish the Student instance before adding grades
                 student = new Student(parsedStudentInfo[0], parsedStudentInfo[1], Convert.ToInt32(parsedStudentInfo[2]));
 
                 string[] parsedGradeInfo = gradeInfo[rnd.Next(0, 99)].ToString().Split(',');
@@ -59,9 +59,7 @@ namespace cSharpStudentClassTemplate
                 student.EngGrade = Convert.ToInt32(parsedGradeInfo[2]);
                 pG.Print($"Eng:  {student.EngGrades[0]} ,{student.EngGrades[1]} ,{student.EngGrades[2]}");
 
-                pS.Print($"{student.ToString()}");
-
-
+                pS.Print($"{student.ToString()}");   // must be last for Student instance to have all grades
             }
         }
 

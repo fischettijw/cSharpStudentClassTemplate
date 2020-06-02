@@ -49,7 +49,7 @@ namespace cSharpStudentClassTemplate
             if (V8 != null) v8 = V8.ToString().RJ(W4);
             output = v1 + v2 + v3 + v4 + v5 + v6 + v7 + v8;
             Lbx.Items.Add(output);
-            Lbx.TopIndex = Lbx.Items.Count - 1;
+            Top();
         }
 
         public void Clear(int nLines = 0)
@@ -65,6 +65,16 @@ namespace cSharpStudentClassTemplate
                     Print("");
                 }
             }
+        }
+
+        public void Top()
+        {
+            Lbx.TopIndex = 0;
+        }
+
+        public void Bottom()
+        {
+            Lbx.TopIndex = Lbx.Items.Count - 1;
         }
 
     }

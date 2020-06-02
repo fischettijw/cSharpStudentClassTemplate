@@ -43,7 +43,7 @@
             this.LbxStudents.ItemHeight = 21;
             this.LbxStudents.Location = new System.Drawing.Point(0, 0);
             this.LbxStudents.Name = "LbxStudents";
-            this.LbxStudents.Size = new System.Drawing.Size(707, 298);
+            this.LbxStudents.Size = new System.Drawing.Size(984, 298);
             this.LbxStudents.TabIndex = 0;
             // 
             // BtnClick
@@ -71,7 +71,7 @@
             this.Txt02.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt02.Location = new System.Drawing.Point(177, 316);
             this.Txt02.Name = "Txt02";
-            this.Txt02.Size = new System.Drawing.Size(518, 29);
+            this.Txt02.Size = new System.Drawing.Size(795, 29);
             this.Txt02.TabIndex = 3;
             this.Txt02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -83,14 +83,14 @@
             this.LbxGrades.ItemHeight = 21;
             this.LbxGrades.Location = new System.Drawing.Point(0, 362);
             this.LbxGrades.Name = "LbxGrades";
-            this.LbxGrades.Size = new System.Drawing.Size(707, 298);
+            this.LbxGrades.Size = new System.Drawing.Size(984, 298);
             this.LbxGrades.TabIndex = 6;
             // 
             // FrmStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 660);
+            this.ClientSize = new System.Drawing.Size(984, 660);
             this.Controls.Add(this.LbxGrades);
             this.Controls.Add(this.Txt02);
             this.Controls.Add(this.Txt01);

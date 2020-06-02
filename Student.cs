@@ -43,7 +43,6 @@ namespace cSharpStudentClassTemplate
 
         public string StudentID { get; }
         public DateTime DateTimeCreated { get; }
-        public static object Invoke { get; private set; }
 
         public Student(string firstName, string lastName, int gradeLevel)
         {
@@ -57,15 +56,9 @@ namespace cSharpStudentClassTemplate
             Students.Add(StudentID, this);
         }
 
-        public string LastFirst()
-        {
-            return LastName + ", " + FirstName;
-        }
+        public string LastFirst() { return LastName + ", " + FirstName; }
 
-        public String FirstLast()
-        {
-            return FirstName + " " + LastName;
-        }
+        public String FirstLast() { return FirstName + " " + LastName; }
 
         public static List<Student> AwardCandidates(Subject subject, Single gradeCutoff)
         {
@@ -80,62 +73,10 @@ namespace cSharpStudentClassTemplate
             return awardCandidates;
         }
 
-
-        public static List<Student> MathAwardCandidates(Single gradeCutoff)
-        {
-            List<Student> awardCandidates = new List<Student>();
-            foreach (KeyValuePair<string, Student> s in Students)
-            {
-                if (s.Value.MathAvg > gradeCutoff)
-                {
-                    awardCandidates.Add(s.Value);
-                }
-            }
-            return awardCandidates;
-        }
-        public static List<Student> SciAwardCandidates()
-        {
-            List<Student> awardCandidates = new List<Student>();
-            foreach (KeyValuePair<string, Student> s in Students)
-            {
-                if (s.Value.SciAvg > 90.0)
-                {
-                    awardCandidates.Add(s.Value);
-                }
-            }
-            return awardCandidates;
-        }
-        public static List<Student> EngAwardCandidates()
-        {
-            List<Student> awardCandidates = new List<Student>();
-            foreach (KeyValuePair<string, Student> s in Students)
-            {
-                if (s.Value.EngAvg > 90.0)
-                {
-                    awardCandidates.Add(s.Value);
-                }
-            }
-            return awardCandidates;
-        }
-
-        public static List<Student> OverallAwardCandidates()
-        {
-            List<Student> awardCandidates = new List<Student>();
-            double overallAverage = 0;
-            foreach (KeyValuePair<string, Student> s in Students)
-            {
-                overallAverage = (s.Value.MathAvg + s.Value.SciAvg + s.Value.EngAvg) / 3;
-                if (s.Value.EngAvg > 90.0)
-                {
-                    awardCandidates.Add(s.Value);
-                }
-            }
-            return awardCandidates;
-        }
-
         public override string ToString()
         {
-            return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)}   M:{MathAvg.ToString("F2").RJ(3)} S:{SciAvg.ToString("F2").RJ(3)} E:{EngAvg.ToString("F2").RJ(3)}";
+            //return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)}   M:{MathAvg.ToString("F2").RJ(3)} S:{SciAvg.ToString("F2").RJ(3)} E:{EngAvg.ToString("F2").RJ(3)}";
+            return $"{StudentID.LJ(8)}{FirstLast().LJ(20)}{GradeLevel.RJ(4)}   M:{MathAvg.ToString("F2").RJ(3)} S:{SciAvg.ToString("F2").RJ(3)} E:{EngAvg.ToString("F2").RJ(3)}      {this.DateTimeCreated.ToString("MMMM dd, yyyy H:mm tt")}";
         }
 
     }
