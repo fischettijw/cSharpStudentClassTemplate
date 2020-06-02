@@ -52,7 +52,20 @@ namespace cSharpStudentClassTemplate
             Lbx.TopIndex = Lbx.Items.Count - 1;
         }
 
-
+        public void Clear(int nLines = 0)
+        {
+            if (nLines == 0)
+            {
+                Lbx.Items.Clear();
+            }
+            else
+            {
+                for (int i = 0; i < nLines; i++)
+                {
+                    Print("");
+                }
+            }
+        }
 
     }
 }

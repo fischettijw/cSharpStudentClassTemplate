@@ -13,7 +13,8 @@ namespace cSharpStudentClassTemplate
         {
             Math,
             Sci,
-            Eng
+            Eng,
+            ALL
         }
 
         private static int studentID = 0;
@@ -71,9 +72,10 @@ namespace cSharpStudentClassTemplate
             List<Student> awardCandidates = new List<Student>();
             foreach (KeyValuePair<string, Student> s in Students)
             {
-                if (subject == Subject.Math) { if (s.Value.MathAvg > gradeCutoff) awardCandidates.Add(s.Value); }
-                if (subject == Subject.Sci) { if (s.Value.SciAvg > gradeCutoff) awardCandidates.Add(s.Value); }
-                if (subject == Subject.Eng) { if (s.Value.EngAvg > gradeCutoff) awardCandidates.Add(s.Value); }
+                if (subject == Subject.Math) { if (s.Value.MathAvg >= gradeCutoff) awardCandidates.Add(s.Value); }
+                if (subject == Subject.Sci) { if (s.Value.SciAvg >= gradeCutoff) awardCandidates.Add(s.Value); }
+                if (subject == Subject.Eng) { if (s.Value.EngAvg >= gradeCutoff) awardCandidates.Add(s.Value); }
+                if (subject == Subject.ALL) { if ((s.Value.MathAvg + s.Value.SciAvg + s.Value.EngAvg) / 3 >= gradeCutoff) awardCandidates.Add(s.Value); }
             }
             return awardCandidates;
         }

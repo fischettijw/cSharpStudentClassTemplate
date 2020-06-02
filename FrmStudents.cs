@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace cSharpStudentClassTemplate
 {
@@ -18,7 +19,6 @@ namespace cSharpStudentClassTemplate
 
         List<string> studentInfo = new List<string>();
         List<string> gradeInfo = new List<string>();
-
 
         public FrmStudents()
         {
@@ -60,17 +60,57 @@ namespace cSharpStudentClassTemplate
                 pG.Print($"Eng:  {student.EngGrades[0]} ,{student.EngGrades[1]} ,{student.EngGrades[2]}");
 
                 pS.Print($"{student.ToString()}");
+
+
             }
         }
 
         private void BtnClick_Click(object sender, EventArgs e)
         {
+            ListBoxPrint pS = new ListBoxPrint(LbxStudents);
+            ListBoxPrint pG = new ListBoxPrint(LbxGrades);
+
+            Single mathAward = 90;
+            Single sciAward = 90;
+            Single engAward = 90;
+            Single allAward = 90;
+
             Txt01.Text = Txt01.Text.RJ(5, '0');
             Txt02.Text = Student.Students[Txt01.Text].ToString();
 
-            List<Student> mathAwards = Student.AwardCandidates(Student.Subject.Math, 90);
-            List<Student> sciAwards = Student.AwardCandidates(Student.Subject.Sci, 90);
-            List<Student> engAwards = Student.AwardCandidates(Student.Subject.Eng, 90);
+            List<Student> mathAwards = Student.AwardCandidates(Student.Subject.Math, mathAward);
+            List<Student> sciAwards = Student.AwardCandidates(Student.Subject.Sci, sciAward);
+            List<Student> engAwards = Student.AwardCandidates(Student.Subject.Eng, engAward);
+            List<Student> allAwards = Student.AwardCandidates(Student.Subject.ALL, allAward);
+
+            pG.Clear(5);
+            pG.Print("Math Awards".RJ(35) + "  " + mathAwards.Count() + "  " + (int)mathAward);
+            foreach (Student award in mathAwards)
+            {
+                pG.Print(award.ToString());
+            }
+            pG.Print("");
+
+            pG.Print("Sci Awards".RJ(35) + "  " + sciAwards.Count() + "  " + (int)sciAward);
+            foreach (Student award in sciAwards)
+            {
+                pG.Print(award.ToString());
+            }
+            pG.Print("");
+
+            pG.Print("Eng Awards".RJ(35) + "  " + engAwards.Count() + "  " + (int)engAward);
+            foreach (Student award in engAwards)
+            {
+                pG.Print(award.ToString());
+            }
+            pG.Print("");
+
+            pG.Print("Overall Award".RJ(35) + "  " + allAwards.Count() + "  " + (int)allAward);
+            foreach (Student award in allAwards)
+            {
+                pG.Print(award.ToString());
+            }
+            pG.Print("");
 
         }
     }
